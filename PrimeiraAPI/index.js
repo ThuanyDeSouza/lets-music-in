@@ -1,8 +1,10 @@
-const express = require('express')
-const morgan = require('morgan')
-const cors = require('cors')
-const bodyParser = require('body-parser')
-const routes = require('./config/routes')
+import express from "express"
+import morgan from "morgan"
+import cors from "cors"
+import bodyParser from "body-parser"
+import routes from "./routes/routes.js"
+import db from "./config/database.js"
+
 
 const app = express()
 
@@ -15,3 +17,16 @@ app.use(routes)
 app.listen(21626, () => {
     console.log('Express started at http://localhost:21626')
 }) 
+
+try {
+    await db.authenticate()
+    console.log("Conexão com banco MySQL FOI estabelecida")
+} catch (erro)
+{
+    console.error("Conexão com o banco MySQL NAO FOI Possível" + erro) 
+}
+
+app.use(Router)
+
+app.listen(21626, ()=> console.log("Server executando na http//localhost:21626"))
+

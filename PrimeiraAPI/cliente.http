@@ -1,0 +1,29 @@
+POST http://localhost:21626/produto HTTP/1.1
+Content-Type: application/json
+
+{
+    "nome": "monitor",
+    "preco": 1400,
+    "descricao": "um monitor ultrawide bem legal"
+}
+
+###
+
+GET http://localhost:21626/produto HTTP/1.1
+Content-Type: application/json
+
+###
+
+PUT http://localhost:21626/produto/2 HTTP/1.1
+Content-Type: application/json
+
+{
+    "nome": "mousepad",
+}
+
+###
+
+DELETE http://localhost:21626/produto/1 HTTP/1.1
+Content-Type: application/json
+
+### 
